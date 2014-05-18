@@ -30,14 +30,16 @@ static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
 static const unsigned int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
 static const unsigned int MAX_INV_SZ = 50000;
-static const int64 MIN_TX_FEE = 10 * CENT;
-static const int64 MIN_RELAY_TX_FEE = 10 * CENT;
-static const int64 MAX_MONEY = 143000000 * COIN;			// 143 million
+static const int64 MIN_TX_FEE = 5 * CENT;
+static const int64 MIN_RELAY_TX_FEE = 5 * CENT;
+static const int64 MAX_MONEY = 143000000 * COIN;
 static const int64 CIRCULATION_MONEY = MAX_MONEY;
 static const double TAX_PERCENTAGE = 0.01;
-static const int64 MAX_LOVE_PROOF_OF_STAKE = 0.0143 * COIN;	// 1.43% annual interest
+static const int64 MAX_LOVE_PROOF_OF_STAKE = 0.1 * COIN;	// 10% annual interest
 
 static const int64 MIN_TXOUT_AMOUNT = MIN_TX_FEE;
+
+static const int POW_CUTOFF_BLOCK = 22068;
 
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.
