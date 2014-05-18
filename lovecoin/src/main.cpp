@@ -940,7 +940,7 @@ int generateMTRandom(unsigned int s, int range)
 int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
 	int64 nSubsidy = 143 * COIN;
-
+	
 	if(nHeight == 1)
 	{
 		nSubsidy = 4000000 * COIN;
@@ -951,7 +951,11 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 		nSubsidy = 1 * COIN;
 		return nSubsidy + nFees;
 	}
-
+	else if(nHeight == POW_CUTOFF_BLOCK ) 
+	{
+		nSubsidy = 1000 * COIN;
+		return nSubsidy + nFees;	
+	}
 //	std::string cseed_str = prevHash.ToString().substr(14,7);
 //	const char* cseed = cseed_str.c_str();
 //	long seed = hex2long(cseed);
